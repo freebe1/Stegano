@@ -1,0 +1,19 @@
+C:\Users\2500118\AppData\Local\Temporary Projects\Stegano\bin\Debug\Stegano.exe.config
+C:\Users\2500118\AppData\Local\Temporary Projects\Stegano\bin\Debug\Stegano.exe
+C:\Users\2500118\AppData\Local\Temporary Projects\Stegano\bin\Debug\Stegano.pdb
+C:\Users\2500118\AppData\Local\Temporary Projects\Stegano\obj\Debug\Stegano.csprojAssemblyReference.cache
+C:\Users\2500118\AppData\Local\Temporary Projects\Stegano\obj\Debug\Stegano.Form1.resources
+C:\Users\2500118\AppData\Local\Temporary Projects\Stegano\obj\Debug\Stegano.Properties.Resources.resources
+C:\Users\2500118\AppData\Local\Temporary Projects\Stegano\obj\Debug\Stegano.csproj.GenerateResource.cache
+C:\Users\2500118\AppData\Local\Temporary Projects\Stegano\obj\Debug\Stegano.csproj.CoreCompileInputs.cache
+C:\Users\2500118\AppData\Local\Temporary Projects\Stegano\obj\Debug\Stegano.exe
+C:\Users\2500118\AppData\Local\Temporary Projects\Stegano\obj\Debug\Stegano.pdb
+C:\Users\2500118\source\repos\Stegano\Stegano\bin\Debug\Stegano.exe.config
+C:\Users\2500118\source\repos\Stegano\Stegano\obj\Debug\Stegano.exe
+C:\Users\2500118\source\repos\Stegano\Stegano\obj\Debug\Stegano.pdb
+C:\Users\2500118\source\repos\Stegano\Stegano\bin\Debug\Stegano.exe
+C:\Users\2500118\source\repos\Stegano\Stegano\bin\Debug\Stegano.pdb
+C:\Users\2500118\source\repos\Stegano\Stegano\obj\Debug\Stegano.csprojResolveAssemblyReference.cache
+C:\Users\2500118\source\repos\Stegano\Stegano\obj\Debug\Stegano.Form1.resources
+C:\Users\2500118\source\repos\Stegano\Stegano\obj\Debug\Stegano.Properties.Resources.resources
+C:\Users\2500118\source\repos\Stegano\Stegano\obj\Debug\Stegano.csproj.GenerateResource.Cache
