@@ -24,7 +24,8 @@ namespace Stegano
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            
+            textBox1.Text = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory) + "\\";
+            textBox3.Text = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory) + "\\";
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -34,8 +35,13 @@ namespace Stegano
             {
                 //read image
                 Bitmap pic = (Bitmap)Image.FromFile(this.textBox1.Text, true);
+                Bitmap pic2;
 
-                Bitmap pic2 = new Bitmap(pic.Width,pic.Height);
+                if(textBox1.Text.Split('\\')[4].Split('.')[1] == "jpg") pic2 = new Bitmap(pic.Width, pic.Height, pic.PixelFormat);//jpg
+                else if (textBox1.Text.Split('\\')[4].Split('.')[1] == "png")pic2 = new Bitmap(pic.Width, pic.Height);//png
+                else pic2 = new Bitmap(pic.Width, pic.Height);
+
+                //Bitmap pic2 = new Bitmap(pic.Width, pic.Height, pic.PixelFormat);
 
                 //load nothing?
                 //picBox.Image = Image.FromFile(this.textBox1.Text, true);
@@ -48,6 +54,9 @@ namespace Stegano
                 int height = pic.Height;
                 int capa = width * height;
                 int x, y;
+                int vR;
+                int vG;
+                int vB;
                 //byte[] bytes = File.ReadAllBytes(this.textBox1.Text);
 
                 /*#region binary String (return => string sb)
@@ -76,9 +85,9 @@ namespace Stegano
                     {
                         //get pixel Value
                         Color p = pic.GetPixel(x, y);
-                        int vR = p.R;
-                        int vG = p.G;
-                        int vB = p.B;
+                        vR = p.R;
+                        vG = p.G;
+                        vB = p.B;
                         #region 이미지 주석
                         /*if (x < 1 && y < textBox2.TextLength)
                         {
@@ -127,15 +136,6 @@ namespace Stegano
                                  );
                                 idx += 3;
                             }
-                            /*else if (idx > sb.Length)
-                            {
-                                pic2.SetPixel(x, y,
-                                 Color.FromArgb(
-                                     Convert.ToByte(Convert.ToString(vR, 2).Substring(0, Convert.ToString(vR, 2).Length - 1) + "0", 2),
-                                     Convert.ToByte(Convert.ToString(vG, 2).Substring(0, Convert.ToString(vG, 2).Length - 1) + "0", 2),
-                                     Convert.ToByte(Convert.ToString(vB, 2).Substring(0, Convert.ToString(vB, 2).Length - 1) + "0", 2))
-                                 );
-                            }*/
                             else {
                                 pic2.SetPixel(x, y,
                                     Color.FromArgb(
@@ -207,16 +207,22 @@ namespace Stegano
                         sb += Convert.ToString(p.R, 2).Substring(Convert.ToString(p.R, 2).Length-1, 1);
                         sb += Convert.ToString(p.G, 2).Substring(Convert.ToString(p.G, 2).Length-1, 1);
                         sb += Convert.ToString(p.B, 2).Substring(Convert.ToString(p.B, 2).Length-1, 1);
+
+                        if (y > 32)
+                            if (sb.Substring(sb.Length - 32) == "00000000000000000000000000000000")
+                                goto Final;
                     }
                 }
+            Final:;
+
             }
             catch
             {
                 if (pic != null) pic.Dispose();
-                Console.WriteLine("sdf");
             }
             finally
             {
+                //Final:
                 if(pic!=null) pic.Dispose();
                 string[] sep = Regex.Split(sb,"00000000");
                 //sb.Split(sep);
@@ -230,9 +236,15 @@ namespace Stegano
                     string binStr = sb.Substring(i * 8, 8);
                     // 2진수 문자열을 숫자로 변경
                     outBytes[i] = (byte)Convert.ToInt32(binStr, 2);
+                    //if(outBytes[i] = )
+                    if (i > 10)
+                        if (outBytes[i] + outBytes[i - 1] + outBytes[i - 2] + outBytes[i - 3] + outBytes[i - 4] + outBytes[i - 5] == 0)
+                            goto AA;
                 }
 
+                AA:
                 // Unicode 인코딩으로 바이트를 문자열로
+                //for()
                 string result = UnicodeEncoding.Unicode.GetString(outBytes);
                 MessageBox.Show(result);
 
